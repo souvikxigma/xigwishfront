@@ -11294,3 +11294,10 @@ textarea.form-control-lg {
   width: 4rem;
   font-size: 2rem;
 }
+.ftnew{
+  clear: both;
+position: fixed;
+height: 10px;
+bottom: 0;
+width: 100%;
+}

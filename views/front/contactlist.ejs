@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-2">
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8"></div>
+                <div class="col-2">
+                    <a href="/contact/add" class="btn btn-primary ">Add Contact</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mt-2">
+            
+            <table class="table display" id="table_id">
+                <thead class="table-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Birthday</th>
+                    <th scope="col">Email</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% for(var i=0; i< data.length; i++) { %>
+                  <tr>
+                    <td><%= (i+1) %></td>
+                    <td><%= data[i].name %></td>
+                    <td><%= data[i].birthday %></td>
+                    <td><%= data[i].email %></td>
+                  </tr>
+                  <% } %>
+                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

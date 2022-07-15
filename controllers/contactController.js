@@ -1,16 +1,23 @@
 const Models = require('../models');
 const Validator = require('fastest-validator');
+var format = require('date-format');
 
 function index(req, res) {
 
     Models.Contact.findAll({})
     .then(result => {
-        res.status(200).json(result);
-    }).catch(error => {
-        res.status(500).json({
-            message: "something going wrong",
-            error: error
+        // res.status(200).json(result);
+
+        return res.render('front/contactlist', {
+            page_name: 'contact',
+            data: result
         });
+
+    }).catch(error => {
+        // res.status(500).json({
+        //     message: "something going wrong",
+        //     error: error
+        // });
     });
 }
 
@@ -25,10 +32,11 @@ function add(req, res) {
 
 function addAction(req, res) {
 
-    console.log('hiii')
+    // console.log(req.body);
+    // return false;
     const newContact = {
         name: req.body.name,
-        birthday: req.body.birthday,
+        birthday: format(req.body.birthday),
         companyName: req.body.companyName,
         gender: req.body.gender,
         email: req.body.email,
