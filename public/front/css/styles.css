@@ -11296,8 +11296,8 @@ textarea.form-control-lg {
 }
 .ftnew{
   clear: both;
-position: fixed;
-height: 10px;
-bottom: 0;
-width: 100%;
+  position: fixed;
+  height: 10px;
+  bottom: 0;
+  width: 100%;
 }

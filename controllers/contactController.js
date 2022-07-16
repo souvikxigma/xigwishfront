@@ -1,6 +1,7 @@
 const Models = require('../models');
 const Validator = require('fastest-validator');
 var format = require('date-format');
+const { localsName } = require('ejs');
 
 function index(req, res) {
 
@@ -79,6 +80,42 @@ function addAction(req, res) {
 }
 
 
+function templateSubmit(req,res){
+
+    Models.Contact.findOne({})
+    .then(result => {
+        // res.status(200).json(result);
+
+        return res.render('front/templat', {
+            page_name: 'template',
+            name: result.name,
+            birthday: result.birthday
+        });
+
+    }).catch(error => {
+        // res.status(500).json({
+        //     message: "something going wrong",
+        //     error: error
+        // });
+    });
+
+    
+}
+
+
+function templateSubmitAction(req,res){
+    let name = req.body.name;
+    let birthday = req.body.birthday;
+
+    console.log('ioioi---',req.body)
+
+    return res.render('front/templat', {
+        page_name: 'template',
+        name:name,
+        birthday:birthday
+    });
+}
+
 
 
 
@@ -86,4 +123,7 @@ module.exports = {
     index: index,
     add: add,
     addAction: addAction,
+    ///
+    templateSubmit: templateSubmit,
+    templateSubmitAction:templateSubmitAction,
 }

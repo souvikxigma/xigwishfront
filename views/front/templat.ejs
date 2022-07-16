@@ -1,0 +1,117 @@
+
+    <!-- HTML 2 CANVAS CDN -->
+
+
+
+
+
+    <style>
+        .tmp-background{
+            background-image: url('/front/assets/background2.jpg');
+            height: auto;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .tmp-background {
+    background-color: rgb(248, 213, 213);
+}
+
+
+.template-text {
+    text-align: center;
+    font-size: 24px;
+}
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col-6">
+                <h1>Create Image Template</h1>
+            </div>
+            <div class="col-6 mt-2">
+                <button class="btn btn-primary" id="download" >Download</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">   
+                
+
+                <div class="row">
+                    <div class="col-12">
+                        <input type="text" id="wishtext" name="wishtext">
+                    </div>
+                  
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <img class="img-fluid" id="temp-1" src="/front/assets/favicon.ico" />
+                    </div>
+                    <div class="col-4">
+                        <img class="img-fluid"id="temp-2" src="/front/assets/background2.jpg" />
+                    </div>
+                    <div class="col-4">
+                        <img class="img-fluid" id="temp-3" src="/front/assets/background.jpg" />
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-6 tmp-background" id="photo">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="/front/assets/company_logo.png" alt=""  class="img-fluid">
+                    </div>
+                    <div class="col-6"></div>
+                    <div class="col-3">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-6 template-text">
+                        <div id="wht"></div>
+                        <div></div>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+    <script>
+         $(document).ready( function () {
+
+            $('#temp-3').click(function(){
+                $('#photo').css("background-image", "url(/front/assets/background.jpg)");  
+            });
+
+            $('#temp-2').click(function(){
+                $('#photo').css("background-image", "url(/front/assets/background2.jpg)");  
+            });
+
+           
+
+            $("#wishtext").on("change paste keyup", function() {
+            // alert($(this).val()); 
+            $('#wht').text($(this).val());
+
+            
+            });
+            
+
+            
+
+        
+        });
+    </script>
+
+   
+
+   
+
