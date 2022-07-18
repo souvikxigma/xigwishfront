@@ -8,6 +8,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      userId: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
       name: {
         type: Sequelize.STRING,  
         allowNull: false
@@ -31,6 +35,19 @@ module.exports = {
       mobile: {
         type: Sequelize.STRING,
         allowNull: true
+      },
+      theme:{
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      text:{
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      delflag:{
+        type: Sequelize.ENUM,
+        values: ['Y', 'N'],
+        defaultValue: 'N',
       },
       createdAt: {
         allowNull: false,

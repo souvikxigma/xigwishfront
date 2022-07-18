@@ -36,6 +36,7 @@ function addAction(req, res) {
     // console.log(req.body);
     // return false;
     const newContact = {
+        userId: req.id,
         name: req.body.name,
         birthday: format(req.body.birthday),
         companyName: req.body.companyName,

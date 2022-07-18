@@ -5,6 +5,7 @@ const http = require('http');
 const bodyParser = require('body-parser');
 var flash = require('express-flash');
 var session = require('express-session');
+const fileUpload = require('express-fileupload');
 
 
 // call express
@@ -18,6 +19,7 @@ app.use(expressLayouts);
 app.use(session({resave: true, saveUninitialized: true, secret: 'XCR3rsasa%RuuuDHHH', cookie: { maxAge: 6000000 }}));
 // set the view engine to ejs
 app.use(flash());
+app.use(fileUpload());
 
 
 
@@ -33,6 +35,9 @@ app.set('layout', 'partials/layout');
 // use res.render to load up an ejs view file
 
 const contactRouter = require('./routers/contactRouter');
+const userRouter = require('./routers/userRouter');
+//cron
+const cronRouter = require('./routers/cronRouter');
 
 
 // // index page
@@ -51,6 +56,8 @@ const contactRouter = require('./routers/contactRouter');
 // ////define all controller ////
 
 app.use(`/contact`,contactRouter);
+app.use(`/cron`,cronRouter);
+app.use(`/`,userRouter);
 // app.use(`/all-orders`,orderAdminRouter);
 // app.use('/',signinAdminRouter);
 

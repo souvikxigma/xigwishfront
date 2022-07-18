@@ -14,6 +14,11 @@ module.exports = (sequelize, Sequelize) => {
     }
   }
   Contact.init({
+    
+    userId: {
+      allowNull: false,
+      type: Sequelize.INTEGER
+    },
     name: {
       type: Sequelize.STRING,  
       allowNull: false
@@ -37,8 +42,20 @@ module.exports = (sequelize, Sequelize) => {
     mobile: {
       type: Sequelize.STRING,
       allowNull: true
+    },
+    theme:{
+      type: Sequelize.STRING,
+      allowNull: true,
+    },
+    text:{
+      type: Sequelize.STRING,
+      allowNull: true,
+    },
+    delflag:{
+      type: Sequelize.ENUM,
+      values: ['Y', 'N'],
+      defaultValue: 'N',
     }
-    
   }, {
     sequelize,
     modelName: 'Contact',

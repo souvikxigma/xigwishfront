@@ -1,14 +1,16 @@
 const express = require('express');
 const contactController = require('../controllers/contactController');
+const authUserCheck = require('../middleware/AuthCheckByLocal');
 
 const router = express.Router();
 
-router.get('/', contactController.index);
-router.get('/add', contactController.add);
-router.post('/add/action', contactController.addAction);
+router.get('/',authUserCheck.authUserByStorage, contactController.index);
+router.get('/add',authUserCheck.authUserByStorage, contactController.add);
+router.post('/add/action',authUserCheck.authUserByStorage, contactController.addAction);
 ////
-router.get('/temp', contactController.templateSubmit);
+router.get('/temp',authUserCheck.authUserByStorage, contactController.templateSubmit);
 router.post('/temp/action', contactController.templateSubmitAction);
+
 
 
 
